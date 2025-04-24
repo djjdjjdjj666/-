@@ -11,7 +11,7 @@ import java.util.List;
  * 封装分页查询结果
  */
 @Data
-@AllArgsConstructor
+@AllArgsConstructor//这个注解会自动生成有参的构造方法,下面那个注解是无参
 @NoArgsConstructor
 public class PageResult implements Serializable {
 
