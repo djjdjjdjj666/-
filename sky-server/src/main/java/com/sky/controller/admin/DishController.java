@@ -40,4 +40,24 @@ public class DishController {
         dishService.saveWithFlavor(dishDTO);//后绪步骤开发
         return Result.success();
     }
+
+    //通过url的query或者路径变量path，path使用@Pathvarible
+    @GetMapping("/page")
+    @ApiOperation("菜品分页查询")
+    public Result<PageResult> page(DishPageQueryDTO dishPageQueryDTOd){
+        log.info("菜品分页查询{}", dishPageQueryDTOd);
+        dishPageQueryDTOd.setPage(dishPageQueryDTOd.getPage() - 1);//limit的页数从0开始
+        PageResult pageResult = dishService.pageQuery(dishPageQueryDTOd);
+        return Result.success(pageResult);
+    }
+
+    @DeleteMapping
+    @ApiOperation("菜品批量删除")
+    public Result delete(@RequestParam List<Long> ids)//加上这个注解就可以自动提取成List
+    {
+        log.info("菜品批量删除{}", ids);
+        dishService.deleteBatch(ids);
+        return Result.success();
+    }
+
 }

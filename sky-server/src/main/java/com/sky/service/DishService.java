@@ -2,8 +2,10 @@ package com.sky.service;
 
 
 import com.sky.dto.DishDTO;
+import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.DishFlavor;
+import com.sky.result.PageResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +17,22 @@ import java.util.List;
 @Service
 public interface DishService{
 
+    /**
+     * 新增菜品和口味
+     * @param dishDTO
+     */
     void saveWithFlavor(DishDTO dishDTO);
+
+    /**
+     * 菜品分页查询
+     * @param dishPageQueryDTOd
+     * @return
+     */
+    PageResult pageQuery(DishPageQueryDTO dishPageQueryDTOd);
+
+    /**
+     * 菜品批量删除
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
 }
