@@ -123,6 +123,10 @@ public class DishServiceImpl implements DishService {
     }
 
 
+    /**
+     * 修改菜品
+     * @param dishDTO
+     */
     public void updateWithFlavor(DishDTO dishDTO) {
         Dish dish = new Dish();
         BeanUtils.copyProperties(dishDTO, dish);
@@ -142,5 +146,15 @@ public class DishServiceImpl implements DishService {
         }
         dishFlavorMapper.insertBatch(flavors);
 
+    }
+
+    /**
+     * 根据分类id查菜品数据
+     * @param categoryId
+     * @return
+     */
+    public List<Dish> selectDishesByCategoryId(String categoryId) {
+        List<Dish> dishes = dishMapper.selectDishesByCategoryId(categoryId);
+        return dishes;
     }
 }

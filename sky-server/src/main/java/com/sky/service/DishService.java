@@ -9,6 +9,7 @@ import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,4 +51,11 @@ public interface DishService{
      * @param dishDTO
      */
     void updateWithFlavor(DishDTO dishDTO);
+
+    /**
+     * 根据分类id查菜品数据
+     * @param categoryId
+     * @return
+     */
+    List<Dish> selectDishesByCategoryId(String categoryId);
 }
