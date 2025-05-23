@@ -84,4 +84,7 @@ public interface DishMapper {
     List<Dish> selectDishesByCategoryId(String categoryId);
 
     List<Dish> list(Dish dish);
+
+    @Update("update dish set status = #{status} where id = #{id}")
+    void starOrStop(Integer status, Long id);
 }
