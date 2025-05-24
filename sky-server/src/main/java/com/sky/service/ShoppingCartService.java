@@ -7,5 +7,15 @@ import java.util.List;
 
 public interface ShoppingCartService {
 
+    /**
+     * 添加购物车
+     * @param shoppingCartDTO
+     */
     public void addShoppingCart(ShoppingCartDTO shoppingCartDTO);
+
+    /**
+     * 查看购物车
+     * @return
+     */
+    List<ShoppingCart> showShoppingCart();
 }
